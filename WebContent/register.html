@@ -5,14 +5,32 @@
 		<title>新用户注册</title>
 	</head>
 	<body>
-		<form action="login.jsp" method="post">
-			UserName
-			<input type="text" name="username" />
-			<br />
-			Password
-			<input type="password" name="password" />
-			<br />
-			<input type="submit" name="submit" value="Login" />
+	<div style="text-align: center;">
+	<fieldset >
+	<legend>欢迎注册</legend>
+		<form action="register.jsp" method="post">
+		<table>
+			<tbody>
+			<tr>
+				<td width="67%" >用户名:</td>
+				<td width="33%"><input type="text"  ></td>
+			</tr>
+			<tr>
+				<td>密码:</td>
+				<td><input type="password" ></td>
+			</tr>
+			<tr>
+				<td>确认密码:</td>
+				<td><input type="password"  ></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td style="text-align: center;"><input name="submit" type="submit" value="注册"></a></td>
+			</tr>
+		</tbody>
+		</table>
 		</form>
+		</fieldset>
+		</div>
 	</body>
 </html>

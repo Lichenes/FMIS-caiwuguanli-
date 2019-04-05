@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<p style="text-align: center;">注册成功！</p>
 </body>
 </html>

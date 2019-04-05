@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+legend {
+	text-align: center;
+}
+</style>
 		<title>用户登录</title>
-	</head>
-	<body>
-		<form action="login.jsp" method="post">
-			UserName
-			<input type="text" name="username" />
-			<br />
-			Password
-			<input type="password" name="password" />
-			<br />
-			<input type="submit" name="submit" value="Login" />
-		</form>
+</head>
+<body>
+<fieldset>
+<legend style="text-align:center;">账号密码登录</legend>
+账号: <input type="text" size="30"><br>
+密码: <input type="text" size="30"><br>
+验证码: <input type="text" size="10">
+<table border="1">
+<tr>
+<th><a href="login.jsp"><input type="button" value="登录"></a></th>
+<th><a href="register.html"><input name="submit" type="submit" value="注册"></a></th>
+</tr>
+</table>
+</fieldset>
 	</body>
 </html>
