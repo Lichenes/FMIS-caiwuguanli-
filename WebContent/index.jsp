@@ -11,14 +11,21 @@ body {
 	font-family: verdana;
 	font-size: 30px;
 	text-align: center;
+	
+}
+.smaller-image{
+   width: 40px;
+}
+.btn1{
+  float: right;
 }
 </style>
     <title>用户注册和登录系统</title>
 </head>
 <body>
-<pre>
-<a href="login.html" title="用户登录"><i>login</i></a> <a href="register.html" title="新用户注册"><em>register</em></a>
-</pre>
+<form style="text-align: center;">
+<a href="login.html" title="请登录"><img alt="请登录" src="image/2.png" class="smaller-image btn1"></a>
+</form>
 <% String today=new Date().toLocaleString(); %>
 今天是：<%= today %>
 </body>

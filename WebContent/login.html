@@ -10,17 +10,17 @@ legend {
 		<title>用户登录</title>
 </head>
 <body>
-<fieldset>
-<legend style="text-align:center;">账号密码登录</legend>
-账号: <input type="text" size="30"><br>
-密码: <input type="text" size="30"><br>
-验证码: <input type="text" size="10">
-<table border="1">
-<tr>
-<th><a href="login.jsp"><input type="button" value="登录"></a></th>
-<th><a href="register.html"><input name="submit" type="submit" value="注册"></a></th>
-</tr>
-</table>
-</fieldset>
+<div style="text-align: center;">
+<h1>欢迎登陆</h1>
+账号: <input type="text" size="30" name="username"><br>
+密码: <input type="password" size="30" name="password"><br>
+验证码: <input type="text" size="10" name="verifycode">
+<pre>
+<a href="login.jsp"><input type="button" value="登录"></a> 
+
+<a href="register.html"><font size="2"><i>没有帐号？点击注册</i></font></a>  
+</pre>
+
+</div>
 	</body>
 </html>
