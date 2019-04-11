@@ -11,7 +11,7 @@ body {
 	font-family: verdana;
 	font-size: 30px;
 	text-align: center;
-	
+	font-family: '微软雅黑',"宋体","Arial Narrow",Helvetica,sans-serif;
 }
 .smaller-image{
    width: 40px;
