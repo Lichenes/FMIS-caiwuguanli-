@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Refresh" content="3;url=index.jsp">
 <style type="text/css">
 body {
 	background-color: #eee !important;
@@ -12,21 +13,20 @@ body {
 }
 </style>
 <%
-	String name = request.getParameter("username");
-	String password = request.getParameter("password");
-	String password2 = request.getParameter("password2");
-	%>
+	session.invalidate();
+%>
 <title>跳转中</title>
 </head>
 <body>
-<%if(name!=null&&password.equals(password2)){ %>
-	<h1>注册成功!</h1>
-账号:<%=name %><br>
-密码:<%=password %>
-<%response.setHeader("Refresh","3;URL=login.html");%> 
-<%}else{ %>
-	<h2>注册失败!请重新注册....</h2>
-	<%response.setHeader("Refresh","3;URL=register.html");%> 
-	<%} %>
+<h1>注销成功!</h1>
+<p><span id="spanid">3</span>秒之后跳转</p>
 </body>
+<script type="text/javascript">
+var time=2;
+function loadTime(){
+var span = document.getElementById("spanid");
+span.innerHTML=time--;
+}
+setInterval("loadTime()", "1000");
+ </script>
 </html>

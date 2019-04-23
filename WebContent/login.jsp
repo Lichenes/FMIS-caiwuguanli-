@@ -4,12 +4,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Refresh" content="3;url=index.jsp">
+<style type="text/css">
+body {
+	background-color:#eee !important;
+	font-family: '微软雅黑',"宋体","Arial Narrow",Helvetica,sans-serif;
+	text-align: center;
+}
+</style>
+<%
+	String name=request.getParameter("username");
+	String password=request.getParameter("password");
+	if(name!=null&&password!=null){
+		session.setAttribute("username",name);
+		session.setAttribute("password", password);
+	}
+%>
+<title>跳转中</title>
 </head>
 <body>
-	用户名:<%=request.getParameter("username")%><br />
-		密码:<%=request.getParameter("password")%><br />
-
-		登陆结果
+<h1>登录成功</h1>
+<p><span id="spanid">3</span>秒之后跳转</p>
 </body>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+<script type="text/javascript">
+var time=2;
+function loadTime(){
+var span = document.getElementById("spanid");
+span.innerHTML=time--;
+}
+setInterval("loadTime()", "1000");
+ </script>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
