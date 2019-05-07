@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+body {
+	background-image: url("../image/4.jpg");
+	background-repeat: no-repeat;
+	background-size:100%;
+    font-family: '微软雅黑',"宋体","Arial Narrow",Helvetica,sans-serif;
+}
+.form-sigin{
+	max-width: 380px;
+	padding: 15px 35px 45px;
+	margin-top:10%;
+	margin-left:32%;
+	border: 1px solid rgba(0,0,0,0.1);
+	background-color: rgba(255,255,255,0.5);
+}
+.form-sigin-heading{
+	margin-bottom: 30px;
+	text-align: center;
+}
+.form-control{
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	border-style: solid;
+	border-radius:10px;
+	border-color: #ccc;
+}
+.btn {
+	width:58%;
+	padding:10px;
+    text-align: center;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    margin-top:20px;
+    color: white;
+}
+
+#tips{
+	text-align:center;
+	color:red;
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	}
