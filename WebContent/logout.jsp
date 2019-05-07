@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Refresh" content="3;url=index.jsp">
+<meta http-equiv="Refresh" content="3;url=login.html">
 <style type="text/css">
 body {
 	background-color: #eee !important;

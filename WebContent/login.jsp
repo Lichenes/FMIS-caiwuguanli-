@@ -3,35 +3,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Refresh" content="3;url=index.jsp">
-<style type="text/css">
-body {
-	background-color:#eee !important;
-	font-family: '微软雅黑',"宋体","Arial Narrow",Helvetica,sans-serif;
-	text-align: center;
-}
-</style>
-<%
-	String name=request.getParameter("username");
-	String password=request.getParameter("password");
-	if(name!=null&&password!=null){
-		session.setAttribute("username",name);
-		session.setAttribute("password", password);
+<link rel="stylesheet" type="text/css" href="css/message.css" >
+<% 
+	String error = (String) request.getAttribute("info");
+	if (error == null) {
+		error="请输入用户名和密码";
 	}
 %>
-<title>跳转中</title>
+		<title>用户登录</title>
 </head>
 <body>
-<h1>登录成功</h1>
-<p><span id="spanid">3</span>秒之后跳转</p>
+<div>
+<form action="User" id="login" method="post" class="form-sigin" >
+<input type="hidden" name="oper" value="Login">
+<h2 class="form-sigin-heading">欢迎登录</h2>
+<div style="text-align: center;">
+<input type="text" class="form-control" id="a" name="username" placeholder="用户名" autocomplete="on"><br>
+<input type="password" class="form-control" id="b" name="password" placeholder="密码"><br>
+<span class="error" style="color: #ff0000"><%=error %></span><br>
+<button class="btn" type="submit" name="submit">登录</button><br><br>
+<a href="register.jsp"><font size="3"><i>没有帐号？点击注册</i></font></a><br><br>
+<a href="pwd.jsp"><font size="3"><i>忘记密码</i></font></a>
+</div>
+</form>
+</div>
 </body>
-<script type="text/javascript">
-var time=2;
-function loadTime(){
-var span = document.getElementById("spanid");
-span.innerHTML=time--;
-}
-setInterval("loadTime()", "1000");
- </script>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

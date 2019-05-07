@@ -1,3 +1,4 @@
+<%@page import="com.ltw.pojo.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,12 +13,13 @@
 	  text-align: left;
 	}
 </style>
+<%
+   String User=((User)session.getAttribute("user")).getUsername();
+%>
 </head>
 <body>
 <div align="right">
-<%if(session.getAttribute("username")==null){%>
-	<a href="login.html" title="请登录"><img alt="请登录" src="image/2.png" class="smaller-image btn1"></a>
-<%} else{%>
+<%if(User!=null){%>
 	<a href="data.jsp" title="个人中心"><img alt="已登录" src="image/3.png" class="smaller-image btn1"></a>
 <%}%>
 </div>
