@@ -23,7 +23,7 @@
 <span class="error" style="color: #ff0000"><%=error %></span><br>
 <button class="btn" type="submit" name="submit">登录</button><br><br>
 <a href="register.jsp"><font size="3"><i>没有帐号？点击注册</i></font></a><br><br>
-<a href="pwd.jsp"><font size="3"><i>忘记密码</i></font></a>
+<a href="newpwd.jsp"><font size="3"><i>忘记密码</i></font></a>
 </div>
 </form>
 </div>

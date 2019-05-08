@@ -10,4 +10,11 @@ public interface UserDao {
 	 * @return 返回查询到的用户信息
 	 */
 	User checkUserLoginDao(String username,String password);
+	/**
+	 * 根据用户ID修改用户密码
+	 * @param newPwd
+	 * @param uid
+	 * @return
+	 */
+	int userChangePwdDao(String newPwd, int uid);
 }

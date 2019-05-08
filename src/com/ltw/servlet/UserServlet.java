@@ -18,7 +18,8 @@ import com.ltw.service.impl.UserSeerviceImpl;
 @WebServlet(name = "User", urlPatterns = { "/User" })
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	//获取service层对象
+		UserService us=new UserSeerviceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,8 +54,26 @@ public class UserServlet extends HttpServlet {
   		}else if("Out".equals(oper)){
   			//调用退出功能
   			userOut(request,response);
+  		}else if("Newpwd".equals(oper)){
+  			//调用密码修改
+  			userChangePwd(request,response);
   		}
   	}
+	//用户修改密码
+	private void userChangePwd(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		//获取新密码数据
+		String newPwd=request.getParameter("newpwd");
+		//获取用户信息
+		User u=(User)request.getSession().getAttribute("user");
+		int uid=u.getUid();
+		//处理请求
+		  //调用service处理
+		int log=us.userChangePwdService(newPwd,uid);
+		if(log>0){
+			response.sendRedirect("login.jsp");
+		}
+	}
+
 	//用户退出
   	private void userOut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//获取session对象
@@ -72,8 +91,7 @@ public class UserServlet extends HttpServlet {
   		String uname=request.getParameter("username");
   		String pwd=request.getParameter("password");
   		//处理请求信息
-  			//获取service层对象
-  			UserService us=new UserSeerviceImpl();
+  			//调用service处理
   			//校验
   			User u=us.checkUserLoginService(uname, pwd);
   			if(u!=null){

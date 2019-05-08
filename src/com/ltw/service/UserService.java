@@ -10,5 +10,12 @@ public interface UserService {
 	 * return 返回查询到的用户信息
 	 */
 	User checkUserLoginService(String username,String password);
-	
+	/**
+	 * 修改用户密码
+	 * @param newPwd
+	 * @param uid
+	 * @return
+	 */
+	int userChangePwdService(String newPwd, int uid);
+		
 }

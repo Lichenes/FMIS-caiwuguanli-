@@ -72,6 +72,7 @@
 	<input type="hidden" name="oper" value="Out">
 	<input type="submit" value="退出" onclick="out();return false;">
 </form>
+<a href="newpwd.jsp"><button type="button" style="margin-left: 37%;">修改密码</button> </a>
 </div>
 </div>
 <div id="footer">
