@@ -60,7 +60,7 @@ public class UserServlet extends HttpServlet {
   		}
   	}
 	//用户修改密码
-	private void userChangePwd(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void userChangePwd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//获取新密码数据
 		String newPwd=request.getParameter("newpwd");
 		//获取用户信息
@@ -70,7 +70,10 @@ public class UserServlet extends HttpServlet {
 		  //调用service处理
 		int log=us.userChangePwdService(newPwd,uid);
 		if(log>0){
-			response.sendRedirect("login.jsp");
+			//获取session对象
+			request.setAttribute("info","密码修改成功!");
+			//重定向
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 
