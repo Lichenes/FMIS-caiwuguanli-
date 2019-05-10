@@ -14,15 +14,15 @@
 </head>
 <body>
 <div class="wrapper">
-<form action="User" method="post" class="form-sigin" >
+<form action="User" method="post" class="form-sigin" onsubmit="return check2()">
 <input type="hidden" name="oper" value="Register">
 <h2 class="form-sigin-heading">注册信息</h2>
 <div style="text-align: left;">
 <pre>
-账号:         <input type="text" class="form-control" id="a" name="username" autocomplete="off" placeholder="7个汉字或14个字符" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$"><br>
-密码:         <input type="password" class="form-control" id="b" name="password" placeholder="字母开头，长度在6~18之间" pattern="^[a-zA-Z]\w{5,17}$"><br>
-确认密码:     <input type="password" class="form-control" id="c" placeholder="请再次输入密码" pattern="^[a-zA-Z]\w{5,17}$" onkeyup="check()"><br>
-               <span id="tips"></span>         <span id="tips"><%=error %></span>
+账号:         <input type="text" class="form-control" id="a" name="username" autocomplete="off" placeholder="最多7个汉字或14个字符" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$" required><br>
+密码:         <input type="password" class="form-control" id="b" name="password" placeholder="字母开头，长度在6~18之间" pattern="^[a-zA-Z]\w{5,17}$" required><br>
+确认密码:     <input type="password" class="form-control" id="c" placeholder="请再次输入密码" pattern="^[a-zA-Z]\w{5,17}$" onkeyup="check()" required><br>
+                   <span id="tips"><%=error %></span>  
               <button class="btn" type="submit" name="submit">注册</button><br>
 </pre>
 </div>
@@ -35,9 +35,18 @@
 		var c=document.getElementById("c").value;
 	if(b!=c)
 	{
-		document.getElementById("tips").innerHTML="两次密码的输入不一致";
+		document.getElementById("tips").innerHTML="输入的密码不一致！";
+		return false;
 	}else{
 		document.getElementById("tips").innerHTML="   ";
+	}
+}
+	function check2(){
+		var b=document.getElementById("b").value;
+		var c=document.getElementById("c").value;
+	if(b!=c)
+	{
+		return false;
 	}
 }
 </script>

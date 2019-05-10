@@ -78,7 +78,7 @@ public class UserServlet extends HttpServlet {
   		}
   		else{
   		//获取session对象
-			request.setAttribute("info","注册失败!");
+			request.setAttribute("info","用户名已存在!");
 			//重定向
 			request.getRequestDispatcher("register.jsp").forward(request, response);
   		}

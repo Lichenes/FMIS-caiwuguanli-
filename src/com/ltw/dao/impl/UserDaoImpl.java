@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
 	  		String pwd="root";
 	  		//加载驱动
 	  		Class.forName("com.mysql.cj.jdbc.Driver");
-	  		//获取连接
+	  		//获取连接.
 	  		conn=DriverManager.getConnection(url, user, pwd);
 	  		//创建sql命令
 	  		String sql="select * from t_user where username=? and password=?";
@@ -130,8 +130,10 @@ public class UserDaoImpl implements UserDao{
 		//声明jdbc对象
 				Connection conn=null; //数据库连接接口
 				PreparedStatement ps=null; //执行动态sql语句接口
+				ResultSet rs=null; //访问结果集接口
 				//创建变量
-				int reg=0;
+				boolean flag=false;
+				int reg=-1;
 		  		try {
 		  			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
 		  	  		String user="root";
@@ -141,14 +143,14 @@ public class UserDaoImpl implements UserDao{
 					//获取连接
 					conn=DriverManager.getConnection(url, user, pwd);
 					//创建sql命令
-					String sql="insert into t_user(username,password,sex) values(?,?,1)";
+					String sql="select * from t_user where username='"+uname+"'";
 					//创建sql命令对象
 					ps=conn.prepareStatement(sql);
-					//给占位符赋值
-					ps.setString(1, uname);
-					ps.setString(2, password);
 					//执行
-					reg=ps.executeUpdate();
+					rs=ps.executeQuery();
+			  		while(rs.next()){
+			  			flag=true;
+			  		}
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -158,18 +160,39 @@ public class UserDaoImpl implements UserDao{
 				}finally {
 					//关闭资源
 					try {
-						ps.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					try {
-						conn.close();
+						rs.close();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
+		  		if(flag){
+		  			reg=0;
+		  		}else{
+		  			String sql2="insert into t_user(username,password,sex) vlaues(?,?,1)";
+		  			try {
+						ps=conn.prepareStatement(sql2);
+						ps.setString(1, uname);
+						ps.setString(2, password);
+						reg=ps.executeUpdate();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally{
+						try {
+							ps.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						try {
+							rs.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+		  		}
 		  		//返回结果
 				return reg;
 			}

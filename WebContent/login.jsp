@@ -18,8 +18,8 @@
 <input type="hidden" name="oper" value="Login">
 <h2 class="form-sigin-heading">欢迎登录</h2>
 <div style="text-align: center;">
-<input type="text" class="form-control" id="a" name="username" placeholder="用户名" autocomplete="on"><br>
-<input type="password" class="form-control" id="b" name="password" placeholder="密码"><br>
+<input type="text" class="form-control" id="a" name="username" placeholder="用户名" autocomplete="on" required><br>
+<input type="password" class="form-control" id="b" name="password" placeholder="密码" required><br>
 <span class="error" style="color: #ff0000"><%=error %></span><br>
 <button class="btn" type="submit" name="submit">登录</button><br><br>
 <a href="register.jsp"><font size="3"><i>没有帐号？点击注册</i></font></a><br><br>
