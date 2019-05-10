@@ -33,6 +33,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -51,6 +52,7 @@ public class UserServlet extends HttpServlet {
   		checkUerLogin(request,response);
   		}else if("Register".equals(oper)){
   			//调用注册
+  			userReister(request,response);
   		}else if("Out".equals(oper)){
   			//调用退出功能
   			userOut(request,response);
@@ -59,6 +61,29 @@ public class UserServlet extends HttpServlet {
   			userChangePwd(request,response);
   		}
   	}
+	//注册用户
+	private void userReister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//获取请求信息
+		String uname=request.getParameter("username");
+  		String password=request.getParameter("password");
+		//处理请求信息
+  			//调用业务层处理
+  		int reg=us.userReisgterService(uname,password);
+		//响应处理结果
+  		if(reg>0){
+  		//获取session对象
+			request.setAttribute("info","注册成功!");
+			//重定向
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+  		}
+  		else{
+  		//获取session对象
+			request.setAttribute("info","注册失败!");
+			//重定向
+			request.getRequestDispatcher("register.jsp").forward(request, response);
+  		}
+	}
+
 	//用户修改密码
 	private void userChangePwd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//获取新密码数据

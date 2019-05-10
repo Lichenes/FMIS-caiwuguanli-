@@ -17,4 +17,10 @@ public interface UserDao {
 	 * @return
 	 */
 	int userChangePwdDao(String newPwd, int uid);
+	/**
+	 * ÓÃ»§×¢²á
+	 * @param u
+	 * @return
+	 */
+	int userReisgterDao(String uname, String password);
 }

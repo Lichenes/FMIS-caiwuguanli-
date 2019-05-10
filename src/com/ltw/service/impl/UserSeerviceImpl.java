@@ -20,5 +20,11 @@ public class UserSeerviceImpl implements UserService{
 		int log=ud.userChangePwdDao(newPwd,uid);
 		return log;
 	}
+	//ÓÃ»§×¢²á
+	@Override
+	public int userReisgterService(String uname, String password) {
+		int reg=ud.userReisgterDao(uname,password);
+		return reg;
+	}
 	
 }

@@ -3,7 +3,7 @@ package com.ltw.service;
 import com.ltw.pojo.User;
 
 public interface UserService {
-	/*
+	/**
 	 * 校验用户登录
 	 * @param username 用户名
 	 * @param password 密码
@@ -17,5 +17,11 @@ public interface UserService {
 	 * @return
 	 */
 	int userChangePwdService(String newPwd, int uid);
+	/**
+	 * 注册用户
+	 * @param u
+	 * @return
+	 */
+	int userReisgterService(String uname, String password);
 		
 }

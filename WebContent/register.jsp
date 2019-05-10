@@ -4,19 +4,25 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/message.css" >
+<% 
+	String error = (String) request.getAttribute("info");
+	if (error == null) {
+		error=" ";
+	}
+%>
 		<title>新用户注册</title>
 </head>
 <body>
 <div class="wrapper">
 <form action="User" method="post" class="form-sigin" >
-<input type="hidden" name="oper" value="Reister">
+<input type="hidden" name="oper" value="Register">
 <h2 class="form-sigin-heading">注册信息</h2>
 <div style="text-align: left;">
 <pre>
 账号:         <input type="text" class="form-control" id="a" name="username" autocomplete="off" placeholder="7个汉字或14个字符" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$"><br>
 密码:         <input type="password" class="form-control" id="b" name="password" placeholder="字母开头，长度在6~18之间" pattern="^[a-zA-Z]\w{5,17}$"><br>
 确认密码:     <input type="password" class="form-control" id="c" placeholder="请再次输入密码" pattern="^[a-zA-Z]\w{5,17}$" onkeyup="check()"><br>
-             <span id="tips"></span>
+               <span id="tips"></span>         <span id="tips"><%=error %></span>
               <button class="btn" type="submit" name="submit">注册</button><br>
 </pre>
 </div>

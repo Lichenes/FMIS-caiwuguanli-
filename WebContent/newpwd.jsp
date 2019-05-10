@@ -38,7 +38,6 @@
 <pre>
 新密码:       <input type="password"  id="a" name="newpwd" placeholder="字母开头，长度在6~18之间" pattern="^[a-zA-Z]\w{5,17}$"><br>
 确认密码:     <input type="password"  id="b" placeholder="请再次输入密码" pattern="^[a-zA-Z]\w{5,17}$"><br>
-             <span id="tips"></span>
                       <button type="submit" name="submit">确认</button><br>
 </pre>
 </form>

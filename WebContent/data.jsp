@@ -38,7 +38,7 @@
 </div>
 <div id="section">
 <div style="padding-left: 65%; padding-top: 10%;">
-<h1 style="padding-left: 25%;">个人信息</h1>
+<h1 style="padding-left: 20%;">个人信息</h1>
 <table>
 <tr>
 <td>账号:</td>
@@ -68,11 +68,11 @@
 	<!--
 	<a href="logout.jsp">退出</a>  //jsp注销session
 	 -->
-<form action="User" id="Out" method="post" style="padding-left: 40%;">
+<form action="User" id="Out" method="post" style="padding-left: 32.5%;">
 	<input type="hidden" name="oper" value="Out">
-	<input type="submit" value="退出" onclick="out();return false;">
+	<input type="submit" value="退出" onclick="out();return false;" style="background-color: transparent;">
 </form>
-<a href="newpwd.jsp"><button type="button" style="margin-left: 37%;">修改密码</button> </a>
+<a href="newpwd.jsp"><button type="button" style="margin-left: 30%; background-color: transparent;">修改密码</button> </a>
 </div>
 </div>
 <div id="footer">

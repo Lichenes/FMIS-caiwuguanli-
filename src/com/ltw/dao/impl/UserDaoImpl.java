@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao{
 		//声明变量
 		User u=null;
 		try {
-			String url="jdbc:mysql://localhost/database?serverTimezone=UTC&useSSL=false";
+			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
 	  		String user="root";
 	  		String pwd="root";
 	  		//加载驱动
@@ -86,7 +86,7 @@ public class UserDaoImpl implements UserDao{
 		//创建变量
 		int log=0;
   		try {
-  		String url="jdbc:mysql://localhost/database?serverTimezone=UTC&useSSL=false";
+  			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
   		String user="root";
   		String pwd="root";
   		//加载驱动
@@ -123,6 +123,57 @@ public class UserDaoImpl implements UserDao{
 			}
 		}
 		return log;
+	}	
+	//用户注册
+	@Override
+	public int userReisgterDao(String uname, String password) {
+		//声明jdbc对象
+				Connection conn=null; //数据库连接接口
+				PreparedStatement ps=null; //执行动态sql语句接口
+				//创建变量
+				int reg=0;
+		  		try {
+		  			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
+		  	  		String user="root";
+		  	  		String pwd="root";
+		  	  		//加载驱动
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					//获取连接
+					conn=DriverManager.getConnection(url, user, pwd);
+					//创建sql命令
+					String sql="insert into t_user(username,password,sex) values(?,?,1)";
+					//创建sql命令对象
+					ps=conn.prepareStatement(sql);
+					//给占位符赋值
+					ps.setString(1, uname);
+					ps.setString(2, password);
+					//执行
+					reg=ps.executeUpdate();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+		  		//返回结果
+				return reg;
+			}
 	}
 
-}
+
+	
