@@ -40,7 +40,6 @@ public class UserDaoImpl implements UserDao{
 	  		while(rs.next()){
 	  			//给变量赋值
 	  			u=new User();
-	  			u.setUid(rs.getInt("uid"));
 	  			u.setUsername(rs.getString("username"));
 	  			u.setPassword(rs.getString("password"));
 	  			u.setSex(rs.getString("sex"));
@@ -77,9 +76,9 @@ public class UserDaoImpl implements UserDao{
 		//返回结果
 		return u;
 	}
-	//根据用户ID修改用户密码
+	//根据用户名修改用户密码
 	@Override
-	public int userChangePwdDao(String newPwd, int uid) {
+	public int userChangePwdDao(String newPwd, String uname) {
 		//声明jdbc对象
 		Connection conn=null;  //数据库连接接口
 		PreparedStatement ps=null;  //执行动态sql语句接口
@@ -87,19 +86,19 @@ public class UserDaoImpl implements UserDao{
 		int log=0;
   		try {
   			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
-  		String user="root";
-  		String pwd="root";
+  			String user="root";
+  			String pwd="root";
   		//加载驱动
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//获取连接
 	  		conn=DriverManager.getConnection(url, user, pwd);
 	  		//创建sql命令
-	  		String sql="update t_user set password=? where uid=?";
+	  		String sql="update t_user set password=? where username=?";
 	  		//创建sql命令对象
 	  		ps=conn.prepareStatement(sql);
 	  		//给占位符赋值
 	  		ps.setString(1, newPwd);
-	  		ps.setInt(2, uid);
+	  		ps.setString(2, uname);
 	  		//执行
 	  		log=ps.executeUpdate();
 		} catch (ClassNotFoundException e) {
@@ -130,9 +129,7 @@ public class UserDaoImpl implements UserDao{
 		//声明jdbc对象
 				Connection conn=null; //数据库连接接口
 				PreparedStatement ps=null; //执行动态sql语句接口
-				ResultSet rs=null; //访问结果集接口
 				//创建变量
-				boolean flag=false;
 				int reg=-1;
 		  		try {
 		  			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
@@ -143,42 +140,19 @@ public class UserDaoImpl implements UserDao{
 					//获取连接
 					conn=DriverManager.getConnection(url, user, pwd);
 					//创建sql命令
-					String sql="select * from t_user where username='"+uname+"'";
-					//创建sql命令对象
-					ps=conn.prepareStatement(sql);
-					//执行
-					rs=ps.executeQuery();
-			  		while(rs.next()){
-			  			flag=true;
-			  		}
+					String sql = "INSERT INTO t_user(username,password,sex) VALUES(?,?,1)";
+					ps = conn.prepareStatement(sql);
+					ps.setString(1, uname);
+					ps.setString(2,password);
+					reg=ps.executeUpdate();
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}finally {
-					//关闭资源
-					try {
-						rs.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-		  		if(flag){
-		  			reg=0;
-		  		}else{
-		  			String sql2="insert into t_user(username,password,sex) vlaues(?,?,1)";
-		  			try {
-						ps=conn.prepareStatement(sql2);
-						ps.setString(1, uname);
-						ps.setString(2, password);
-						reg=ps.executeUpdate();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}finally{
+				}finally{
+		  
 						try {
 							ps.close();
 						} catch (SQLException e) {
@@ -186,13 +160,12 @@ public class UserDaoImpl implements UserDao{
 							e.printStackTrace();
 						}
 						try {
-							rs.close();
+							conn.close();
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
-		  		}
 		  		//返回结果
 				return reg;
 			}

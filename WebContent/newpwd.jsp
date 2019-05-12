@@ -15,20 +15,7 @@
 </div>
 </div>
 <div id="nav">
-<table id="table">
-<tr>
-<td><a href="index.jsp">主页</a></td>
-</tr>
-<tr>
-<td><a href="#">收入</a></td>
-</tr>
-<tr>
-<td><a href="#">支出</a></td>
-</tr>
-<tr>
-<td><a href="data.jsp">信息管理</a></td>
-</tr>
-</table>
+<%@ include file="left.jsp" %>
 </div>
 <div id="section">
 <div style="padding-left: 65%; padding-top: 10%;">
@@ -48,23 +35,6 @@
 </div>
 </body>
 <script type="text/javascript">
-	var trs = document.getElementById('table').getElementsByTagName('tr');
-	window.onload = function(){
-	 for( var i=0; i<trs.length; i++ ){
-	  trs[i].onmousedown = function(){
- 	  tronmousedown(this);
-  	}
-  }
-}
-	function tronmousedown(obj){
-	 for( var o=0; o<trs.length; o++ ){
-	  if( trs[o] == obj ){
- 	  trs[o].style.backgroundColor = '#DEEEFF';
- 	 } else{
-  		 trs[o].style.backgroundColor ='';
-  	}
- }
-}
 	function check(){
 		var a=document.getElementById("a").value;
 		var b=document.getElementById("b").value;

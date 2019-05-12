@@ -11,12 +11,12 @@ public interface UserDao {
 	 */
 	User checkUserLoginDao(String username,String password);
 	/**
-	 * 根据用户ID修改用户密码
+	 * 根据用户名字修改用户密码
 	 * @param newPwd
-	 * @param uid
+	 * @param uname
 	 * @return
 	 */
-	int userChangePwdDao(String newPwd, int uid);
+	int userChangePwdDao(String newPwd, String uname);
 	/**
 	 * 用户注册
 	 * @param u

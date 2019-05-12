@@ -21,24 +21,11 @@
 </div>
 </div>
 <div id="nav">
-<table id="table">
-<tr>
-<td><a href="index.jsp">主页</a></td>
-</tr>
-<tr>
-<td><a href="#">收入</a></td>
-</tr>
-<tr>
-<td><a href="#">支出</a></td>
-</tr>
-<tr>
-<td><a href="data.jsp">信息管理</a></td>
-</tr>
-</table>
+<%@ include file="left.jsp" %>
 </div>
 <div id="section">
 <div style="padding-left: 65%; padding-top: 10%;">
-<h1 style="padding-left: 20%;">个人信息</h1>
+<h1 style="padding-left: 10%;">个人信息</h1>
 <table>
 <tr>
 <td>账号:</td>
@@ -65,14 +52,6 @@
 <td><%=Brith %></td>
 </tr>
 </table>
-	<!--
-	<a href="logout.jsp">退出</a>  //jsp注销session
-	 -->
-<form action="User" id="Out" method="post" style="padding-left: 32.5%;">
-	<input type="hidden" name="oper" value="Out">
-	<input type="submit" value="退出" onclick="out();return false;" style="background-color: transparent;">
-</form>
-<a href="newpwd.jsp"><button type="button" style="margin-left: 30%; background-color: transparent;">修改密码</button> </a>
 </div>
 </div>
 <div id="footer">
@@ -80,23 +59,6 @@
 </div>
 </body>
 <script type="text/javascript">
-	var trs = document.getElementById('table').getElementsByTagName('tr');
-	window.onload = function(){
-	 for( var i=0; i<trs.length; i++ ){
-	  trs[i].onmousedown = function(){
- 	  tronmousedown(this);
-  	}
-  }
-}
-	function tronmousedown(obj){
-	 for( var o=0; o<trs.length; o++ ){
-	  if( trs[o] == obj ){
- 	  trs[o].style.backgroundColor = '#DEEEFF';
- 	 } else{
-  		 trs[o].style.backgroundColor ='';
-  	}
- }
-}
 	function out() {
 		if(window.confirm("你確定退出此账号?")){
 			submit();

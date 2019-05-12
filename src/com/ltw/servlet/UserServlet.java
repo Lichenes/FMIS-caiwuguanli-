@@ -90,10 +90,10 @@ public class UserServlet extends HttpServlet {
 		String newPwd=request.getParameter("newpwd");
 		//获取用户信息
 		User u=(User)request.getSession().getAttribute("user");
-		int uid=u.getUid();
+		String uname=u.getUsername();
 		//处理请求
 		  //调用service处理
-		int log=us.userChangePwdService(newPwd,uid);
+		int log=us.userChangePwdService(newPwd,uname);
 		if(log>0){
 			//获取session对象
 			request.setAttribute("info","密码修改成功!");

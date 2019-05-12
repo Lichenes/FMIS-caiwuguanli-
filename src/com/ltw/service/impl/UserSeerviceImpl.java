@@ -16,8 +16,8 @@ public class UserSeerviceImpl implements UserService{
 	}
 	//修改用户密码
 	@Override
-	public int userChangePwdService(String newPwd, int uid) {
-		int log=ud.userChangePwdDao(newPwd,uid);
+	public int userChangePwdService(String newPwd, String uname) {
+		int log=ud.userChangePwdDao(newPwd,uname);
 		return log;
 	}
 	//用户注册

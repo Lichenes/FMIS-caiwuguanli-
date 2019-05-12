@@ -20,7 +20,7 @@
 <body>
 <div align="right">
 <%if(User!=null){%>
-	<a href="data.jsp" title="个人中心"><img alt="已登录" src="image/3.png" class="smaller-image btn1"></a>
+	<a href="data.jsp" title="个人中心"><img alt="已登录" src="image/2.png" class="smaller-image btn1"></a>
 <%}%>
 </div>
 </body>

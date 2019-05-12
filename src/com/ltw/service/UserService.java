@@ -13,10 +13,10 @@ public interface UserService {
 	/**
 	 * 修改用户密码
 	 * @param newPwd
-	 * @param uid
+	 * @param uname
 	 * @return
 	 */
-	int userChangePwdService(String newPwd, int uid);
+	int userChangePwdService(String newPwd, String uname);
 	/**
 	 * 注册用户
 	 * @param u

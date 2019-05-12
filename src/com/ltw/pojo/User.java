@@ -7,6 +7,11 @@ public class User {
 	private String sex;
 	private int age;
 	private String brith;
+	private String cardid;
+	private int money;
+	private String type;
+	private String date;
+	private String notebook;
 	public int getUid() {
 		return uid;
 	}
@@ -43,14 +48,49 @@ public class User {
 	public void setBrith(String brith) {
 		this.brith = brith;
 	}
+	public String getCardid() {
+		return cardid;
+	}
+	public void setCardid(String cardid) {
+		this.cardid = cardid;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getNotebook() {
+		return notebook;
+	}
+	public void setNotebook(String notebook) {
+		this.notebook = notebook;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + age;
 		result = prime * result + ((brith == null) ? 0 : brith.hashCode());
+		result = prime * result + ((cardid == null) ? 0 : cardid.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + money;
+		result = prime * result + ((notebook == null) ? 0 : notebook.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + uid;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -71,6 +111,23 @@ public class User {
 				return false;
 		} else if (!brith.equals(other.brith))
 			return false;
+		if (cardid == null) {
+			if (other.cardid != null)
+				return false;
+		} else if (!cardid.equals(other.cardid))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (money != other.money)
+			return false;
+		if (notebook == null) {
+			if (other.notebook != null)
+				return false;
+		} else if (!notebook.equals(other.notebook))
+			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -80,6 +137,11 @@ public class User {
 			if (other.sex != null)
 				return false;
 		} else if (!sex.equals(other.sex))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
 			return false;
 		if (uid != other.uid)
 			return false;
@@ -93,13 +155,16 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", sex=" + sex + ", age="
-				+ age + ", brith=" + brith + "]";
+				+ age + ", brith=" + brith + ", cardid=" + cardid + ", money=" + money + ", type=" + type + ", date="
+				+ date + ", notebook=" + notebook + "]";
 	}
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int uid, String username, String password, String sex, int age, String brith) {
+	public User(int uid, String username, String password, String sex, int age, String brith, String cardid, int money,
+			String type, String date, String notebook) {
 		super();
 		this.uid = uid;
 		this.username = username;
@@ -107,6 +172,11 @@ public class User {
 		this.sex = sex;
 		this.age = age;
 		this.brith = brith;
+		this.cardid = cardid;
+		this.money = money;
+		this.type = type;
+		this.date = date;
+		this.notebook = notebook;
 	}
 	
 }
