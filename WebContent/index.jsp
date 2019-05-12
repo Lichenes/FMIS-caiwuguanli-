@@ -5,6 +5,10 @@
 <head>
 <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
 <link rel="stylesheet" type="text/css" href="css/index.css" >
+<% 
+	String error = (String) request.getAttribute("info");
+%>
+
     <title>财务管理系统</title>
 </head>
 <body>

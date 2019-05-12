@@ -4,6 +4,10 @@
 <head>
 <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
 <link rel="stylesheet" type="text/css" href="css/index.css" >
+<% 
+	String error = (String) request.getAttribute("info");
+%>
+
     <title>完善个人信息</title>
 </head>
 <body>
@@ -41,7 +45,7 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><input type="submit" name="submit" value="添加"></td>
+<td colspan="2" align="center"><input type="submit" name="submit" value="添加" onclick="show()"></td>
 </tr>
 </table>
 </form>
@@ -50,4 +54,9 @@
 <%@ include file="footer.jsp" %>
 </div>
 </body>
+<script type="text/javascript">
+	function show() {
+		alert("<%=error %>");
+	}
+</script>
 </html>

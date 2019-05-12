@@ -58,11 +58,4 @@
 <%@ include file="footer.jsp" %>
 </div>
 </body>
-<script type="text/javascript">
-	function out() {
-		if(window.confirm("你確定退出此账号?")){
-			submit();
-		}
-	}
-</script>
 </html>
