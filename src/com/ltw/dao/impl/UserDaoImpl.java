@@ -42,9 +42,6 @@ public class UserDaoImpl implements UserDao{
 	  			u=new User();
 	  			u.setUsername(rs.getString("username"));
 	  			u.setPassword(rs.getString("password"));
-	  			u.setSex(rs.getString("sex"));
-	  			u.setAge(rs.getInt("age"));
-	  			u.setBrith(rs.getString("birth"));
 	  		}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -140,7 +137,7 @@ public class UserDaoImpl implements UserDao{
 					//获取连接
 					conn=DriverManager.getConnection(url, user, pwd);
 					//创建sql命令
-					String sql = "INSERT INTO t_user(username,password,sex) VALUES(?,?,1)";
+					String sql = "INSERT INTO t_user(username,password) VALUES(?,?)";
 					ps = conn.prepareStatement(sql);
 					ps.setString(1, uname);
 					ps.setString(2,password);

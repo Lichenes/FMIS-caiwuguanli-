@@ -2,9 +2,6 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background-image: url("../image/5.jpg");
-	background-repeat: no-repeat;
-	background-size:100%;
     font-family: '微软雅黑',"宋体","Arial Narrow",Helvetica,sans-serif;
 }
 #header {
@@ -27,6 +24,9 @@ body{
     height: 11.5%;
 }
 #nav{
+	background-image: url("../image/5.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
 	line-height: normal;
 	width: 20.5%;
 	height: 80%;
@@ -34,8 +34,11 @@ body{
 	margin: 0px;
 }
 #section{
+	background-image: url("../image/5.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
 	height:80%;
-	width:79.5%;
+	width:100%;
 }
 #footer{
 	background-image:url("../image/4.jpg");

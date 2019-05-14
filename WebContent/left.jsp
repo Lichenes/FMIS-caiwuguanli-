@@ -29,11 +29,11 @@ a{
 <div class="show" onclick="isHidden('div2')">费用明细</div>
 <ul id="div2">
 <li><a href="income.jsp">收入</a></li>
-<li><a href="#">支出</a></li>
+<li><a href="consume.jsp">支出</a></li>
 </ul>
 <div class="show" onclick="isHidden('div3')">信息管理</div>
 <ul id="div3">
-<li><a href="data.jsp">个人信息</a></li>
+<li><a href="Account?oper=refresh">个人信息</a></li>
 <li><a href="information.jsp">完善信息</a></li>
 <li><a href="newpwd.jsp">修改密码</a></li>
 <li><a href="User?oper=Out" onclick="out();return false;">退出</a></li>
@@ -48,6 +48,9 @@ a{
 		if(window.confirm("你確定退出此账号?")){
 			submit();
 		}
+	}
+	function skip() {
+		 windows.location.href="data.jsp";
 	}
 </script>
 </html>

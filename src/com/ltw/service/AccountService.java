@@ -1,10 +1,13 @@
 package com.ltw.service;
 
+import com.ltw.pojo.User;
+
 public interface AccountService {
-
-	int userAdd(String uname, String id, int money);
-
-	int userAdd2(String uname, String sex, int age);
-
 	
+	int userAdd(String uname, String name, String id, int money, int age, String sex);
+
+	User userGetMessage(String uname);
+
+	int userIcome(String name, String income, int money, String date, String notebook);
+
 }

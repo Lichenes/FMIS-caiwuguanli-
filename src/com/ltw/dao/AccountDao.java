@@ -1,6 +1,33 @@
 package com.ltw.dao;
 
+import com.ltw.pojo.User;
+
 public interface AccountDao {
-	int userAdd(String uname, String id, int money);
-	int userAdd2(String uname, String sex, int age);
+	/**
+	 * 
+	 * @param uname
+	 * @param name
+	 * @param id
+	 * @param money
+	 * @param age
+	 * @param sex
+	 * @return
+	 */
+	int userAdd(String uname, String name, String id, int money, int age, String sex);
+	/**
+	 * 
+	 * @param uname
+	 * @return
+	 */
+	User UserDao(String uname);
+	/**
+	 * 
+	 * @param name
+	 * @param income
+	 * @param money
+	 * @param date
+	 * @param notebook
+	 * @return
+	 */
+	int userIcomeDao(String name, String income, int money, String date, String notebook);
 }

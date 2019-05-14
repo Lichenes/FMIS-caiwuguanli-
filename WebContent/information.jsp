@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="css/index.css" >
 <% 
 	String error = (String) request.getAttribute("info");
+	if (error == null) {
+		error=" ";
+	}
 %>
 
     <title>完善个人信息</title>
@@ -21,13 +24,18 @@
 <%@ include file="left.jsp" %>
 </div>
 <div id="section">
-<form action="Account" style="padding-left: 65%; padding-top: 10%;">
+<form action="Account" style="padding-left: 50%; padding-top: 10%;">
 <input type="hidden" name="oper" value="Ifm">
+<span class="error" style="color: #ff0000; padding-left: 10%;"><%=error %></span>
 	<h1 style="padding-left: 10%;">完善个人信息</h1>
 <table>
 <tr>
-<td>银行卡户:</td>
+<td>银行卡号:</td>
 <td><input type="text" required="required" name="cardid"></td>
+</tr>
+<tr>
+<td>持卡人:</td>
+<td><input type="text" required="required" name="name"></td>
 </tr>
 <tr>
 <td>银行卡余额:</td>
@@ -45,7 +53,7 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><input type="submit" name="submit" value="添加" onclick="show()"></td>
+<td colspan="2" align="center"><input type="submit" name="submit" value="添加"></td>
 </tr>
 </table>
 </form>

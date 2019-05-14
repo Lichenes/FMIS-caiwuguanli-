@@ -18,8 +18,8 @@
 <%@ include file="left.jsp" %>
 </div>
 <div id="section">
-<div style="padding-left: 65%; padding-top: 10%;">
-<h1 style="padding-left: 25%;">修改密码</h1>
+<div style="padding-left: 50%; padding-top: 10%;">
+<h1 style="padding-left: 20%;">修改密码</h1>
 <form action="User" id="newpwd" method="post" style="padding-left: 5%;" onsubmit="return check();" target="_top">
 <input type="hidden" name="oper" value="Newpwd">
 <pre>
