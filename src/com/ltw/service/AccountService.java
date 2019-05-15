@@ -10,4 +10,7 @@ public interface AccountService {
 
 	int userIcome(String name, String income, int money, String date, String notebook);
 
+	int userIcrease(int rmb, String uname);
+
+
 }

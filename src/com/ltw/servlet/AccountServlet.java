@@ -44,13 +44,27 @@ public class AccountServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
   		response.setContentType("text/html;charset=utf-8");
   		String oper=request.getParameter("oper");
+  		int all;
   		if("Ifm".equals(oper)){
   				   	userAdd(request,response);
   		}else if("refresh".equals(oper)){
   				userGetMessage(request,response);
   		}else if("Income".equals(oper)){
-  			userIncome(request,response);
+  			all=userIcrease(request,response);
+  			if(all>0){
+  				userIncome(request,response);
+  			}
+  		}else if("Consume".equals(oper)){
+  			//userConsume(request,response);
   		}
+	}
+
+	private int userIcrease(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User u=(User)request.getSession().getAttribute("user");
+		int rmb=request.getParameter("money")!=" "?Integer.parseInt(request.getParameter("money")):0;
+		String uname=u.getUsername();
+		int index=as.userIcrease(rmb,uname);
+		return index;
 	}
 
 	private void userIncome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

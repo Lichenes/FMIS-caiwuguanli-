@@ -19,7 +19,7 @@ public interface AccountDao {
 	 * @param uname
 	 * @return
 	 */
-	User UserDao(String uname);
+	User UserGetMessageDao(String uname);
 	/**
 	 * 
 	 * @param name
@@ -30,4 +30,13 @@ public interface AccountDao {
 	 * @return
 	 */
 	int userIcomeDao(String name, String income, int money, String date, String notebook);
+	/**
+	 * 
+	 * @param rmb
+	 * @param uname
+	 * @return
+	 */
+	int uerIcrease(int rmb, String uname);
+
+
 }

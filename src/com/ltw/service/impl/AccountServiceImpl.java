@@ -17,13 +17,19 @@ public class AccountServiceImpl implements  AccountService{
 	@Override
 	public User userGetMessage(String uname) {
 		// TODO Auto-generated method stub
-		return ad.UserDao(uname);
+		return ad.UserGetMessageDao(uname);
 	}
 
 	@Override
 	public int userIcome(String name, String income, int money, String date, String notebook) {
 		// TODO Auto-generated method stub
 		return ad.userIcomeDao(name,income,money,date,notebook);
+	}
+
+	@Override
+	public int userIcrease(int rmb, String uname) {
+		// TODO Auto-generated method stub
+		return ad.uerIcrease(rmb,uname);
 	}
 
 }
