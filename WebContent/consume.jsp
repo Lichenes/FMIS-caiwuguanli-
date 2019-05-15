@@ -21,7 +21,7 @@
             border: 10px solid orange; 
             background-color: white; 
             z-index:1002; 
-            overflow: auto;
+            overflow: auto; 
         } 
 </style>
     <title>财务管理系统</title>
@@ -38,21 +38,21 @@
 </div>
 <div id="section">
 <div>
-用户管理<a href="javascript:void(0)" onclick="pop()" style="padding-left: 65%;">添加收入账单</a>
+用户管理<a href="javascript:void(0)" onclick="pop()" style="padding-left: 65%;">添加消费账单</a>
 <div id="light" class="white_content">
-	<h2 align="center">添加收入表单</h2>
+	<h2 align="center">添加消费表单</h2>
 <form action="Account" method="post" style="font-size: 20px; text-align: center;">
-<input type="hidden" name="oper" value="Income">
-收入人:&emsp;&emsp;&emsp;<input type="text" name="name" required="required"><br>
-收入类型:&emsp;&emsp;<input type="text" name="income" list="income" required="required"><br>
-收入金额:&emsp;&emsp;<input type="text" name="money" required="required"><br>
-收入时间:&emsp;&emsp;<input type="text" name="date"  value="<%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %>"/><br>
+<input type="hidden" name="oper" value="Consume">
+消费人:&emsp;&emsp;&emsp;<input type="text" name="name" required="required"><br>
+消费类型:&emsp;&emsp;<input type="text" name="consume" list="consume" required="required"><br>
+消费金额:&emsp;&emsp;<input type="text" name="money" required="required"><br>
+消费时间:&emsp;&emsp;<input type="text" name="date"  value="<%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %>"/><br>
 备忘录:&emsp;&emsp;&emsp;<textarea  cols="22" rows="3" style="overflow: auto;" name="notebook"></textarea><br>
 <button type="submit" name="submit" onclick="pop1()">添加</button>&emsp;<button type="submit" onclick="pop1()">返回</button>
-<datalist id="income">
-	<option>固定工资</option>
-	<option>奖金</option>
-	<option>其他收入</option>
+<datalist id="consume">
+	<option>生活费</option>
+	<option>游玩费</option> 
+	<option>其他消费</option>
 </datalist>
 </form>
 </div>

@@ -32,4 +32,16 @@ public class AccountServiceImpl implements  AccountService{
 		return ad.uerIcrease(rmb,uname);
 	}
 
+	@Override
+	public int userDecrease(int rmb, String uname) {
+		// TODO Auto-generated method stub
+		return ad.useDecreaseDao(rmb,uname);
+	}
+
+	@Override
+	public int userConsume(String name, String consume, int money, String date, String notebook) {
+		// TODO Auto-generated method stub
+		return ad.userConsume(name,consume,money,date,notebook);
+	}
+
 }

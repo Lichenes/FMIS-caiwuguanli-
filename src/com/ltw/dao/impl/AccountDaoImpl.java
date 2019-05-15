@@ -207,4 +207,85 @@ public class AccountDaoImpl implements AccountDao{
 		return index;
 	}
 
+	@Override
+	public int useDecreaseDao(int rmb, String uname) {
+		Connection conn=null; 
+		PreparedStatement ps=null;  
+		int index=0;
+  		try {
+  			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
+  			String user="root";
+  			String pwd="root";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	  		conn=DriverManager.getConnection(url, user, pwd);
+	  		String sql="update t_account set money=money-? where username=?";
+	  		ps=conn.prepareStatement(sql);
+	  		ps.setInt(1, rmb);
+	  		ps.setString(2, uname);
+	  		index=ps.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return index;
+	}
+
+	@Override
+	public int userConsume(String name, String consume, int money, String date, String notebook) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		int index=0;
+		try {
+			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
+	  		String user="root";
+	  		String pwd="root";
+	  		Class.forName("com.mysql.cj.jdbc.Driver");
+	  		conn=DriverManager.getConnection(url, user, pwd);
+	  		String sql="insert into t_consume values(default,?,?,?,?,?)";
+	  		ps=conn.prepareStatement(sql);
+	  		ps.setString(1, name);
+	  		ps.setString(2, consume);
+	  		ps.setInt(3, money);
+	  		ps.setString(4, date);
+	  		ps.setString(5, notebook);
+	  		index=ps.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return index;
+	}
+
 }

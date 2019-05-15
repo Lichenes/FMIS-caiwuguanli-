@@ -37,6 +37,23 @@ public interface AccountDao {
 	 * @return
 	 */
 	int uerIcrease(int rmb, String uname);
+	/**
+	 * 
+	 * @param rmb
+	 * @param uname
+	 * @return
+	 */
+	int useDecreaseDao(int rmb, String uname);
+	/**
+	 * 
+	 * @param name
+	 * @param consume
+	 * @param money
+	 * @param date
+	 * @param notebook
+	 * @return
+	 */
+	int userConsume(String name, String consume, int money, String date, String notebook);
 
 
 }

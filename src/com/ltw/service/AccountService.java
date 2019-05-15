@@ -12,5 +12,9 @@ public interface AccountService {
 
 	int userIcrease(int rmb, String uname);
 
+	int userDecrease(int rmb, String uname);
+
+	int userConsume(String name, String consume, int money, String date, String notebook);
+
 
 }
