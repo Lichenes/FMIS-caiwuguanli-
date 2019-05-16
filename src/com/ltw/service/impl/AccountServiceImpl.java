@@ -44,4 +44,10 @@ public class AccountServiceImpl implements  AccountService{
 		return ad.userConsume(name,consume,money,date,notebook);
 	}
 
+	@Override
+	public User userCheckMoney(String uname) {
+		// TODO Auto-generated method stub
+		return ad.userCheckMoneyDao(uname);
+	}
+
 }

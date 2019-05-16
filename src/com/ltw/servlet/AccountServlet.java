@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.ltw.pojo.User;
 import com.ltw.service.AccountService;
 import com.ltw.service.impl.AccountServiceImpl;
@@ -55,15 +54,27 @@ public class AccountServlet extends HttpServlet {
   				userIncome(request,response);
   			}
   		}else if("Consume".equals(oper)){
-  			all=userDecrease(request,response);
+  			all=userCheckMoney(request,response);
   			if(all>0){
+  			    userDecrease(request,response);
   				userConsume(request,response);
-  			}else{
-  				request.setAttribute("info","银行卡余额不足!");
-  				request.getRequestDispatcher("consume.jsp").forward(request, response);
   			}
-  			
   		}
+	}
+
+	private int userCheckMoney(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User u=(User)request.getSession().getAttribute("user");
+		int rmb=request.getParameter("money")!=" "?Integer.parseInt(request.getParameter("money")):0;
+		String uname=u.getUsername();
+		User money=as.userCheckMoney(uname);
+		int rmb1=money.getMoney();
+		if(rmb1<rmb){
+			request.setAttribute("info","银行卡余额不足!");
+			request.getRequestDispatcher("consume.jsp").forward(request, response);
+			return 0;
+		}else{
+			return 1;
+		}
 	}
 
 	private int userDecrease(HttpServletRequest request, HttpServletResponse response) {

@@ -16,5 +16,7 @@ public interface AccountService {
 
 	int userConsume(String name, String consume, int money, String date, String notebook);
 
+	User userCheckMoney(String uname);
+
 
 }

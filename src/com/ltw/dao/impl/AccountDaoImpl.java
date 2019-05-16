@@ -288,4 +288,53 @@ public class AccountDaoImpl implements AccountDao{
 		return index;
 	}
 
+	@Override
+	public User userCheckMoneyDao(String uname) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		User u=null;
+		try {
+			String url="jdbc:mysql://localhost:3306/database?serverTimezone=UTC&useSSL=false";
+	  		String user="root";
+	  		String pwd="root";
+	  		Class.forName("com.mysql.cj.jdbc.Driver");
+	  		conn=DriverManager.getConnection(url, user, pwd);
+	  		String sql="select money from t_account where username=?";
+	  		ps=conn.prepareStatement(sql);
+	  		ps.setString(1, uname);
+	  		rs=ps.executeQuery();
+	  		while(rs.next()){
+	  			u=new User();
+	  			u.setMoney(rs.getInt("money"));
+	  		}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return u;
+	}
+
 }

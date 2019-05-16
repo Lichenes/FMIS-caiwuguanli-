@@ -12,8 +12,17 @@
 	}
 %>
 <style type="text/css">
+table{
+	width: 100%;
+	height: 10%;
+}
+.aa{
+	overflow: auto;
+}
+
  .white_content { 
-            display: none; 
+            display: none;
+            position: absolute;  
             margin-top:5%;
             margin-left:40%;
             width: 30%; 
@@ -21,7 +30,7 @@
             border: 10px solid orange; 
             background-color: white; 
             z-index:1002; 
-            overflow: auto; 
+            overflow: auto;
         } 
 </style>
     <title>财务管理系统</title>
@@ -37,8 +46,6 @@
 <%@ include file="left.jsp" %>
 </div>
 <div id="section">
-<div>
-用户管理<a href="javascript:void(0)" onclick="pop()" style="padding-left: 65%;">添加消费账单</a>
 <div id="light" class="white_content">
 	<h2 align="center">添加消费表单</h2>
 <form action="Account" method="post" style="font-size: 20px; text-align: center;">
@@ -48,15 +55,30 @@
 消费金额:&emsp;&emsp;<input type="text" name="money" required="required"><br>
 消费时间:&emsp;&emsp;<input type="text" name="date"  value="<%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %>"/><br>
 备忘录:&emsp;&emsp;&emsp;<textarea  cols="22" rows="3" style="overflow: auto;" name="notebook"></textarea><br>
-<button type="submit" name="submit" onclick="pop1()">添加</button>&emsp;<button type="submit" onclick="pop1()">返回</button>
+<button type="submit" name="submit" onclick="pop1()">添加</button>&emsp;<button type="button" onclick="pop1()">返回</button>
 <datalist id="consume">
 	<option>生活费</option>
-	<option>游玩费</option> 
+	<option>旅行费</option>
 	<option>其他消费</option>
 </datalist>
 </form>
 </div>
-<span class="error" style="color: #ff0000"><%=error %></span><br>
+<div id="fade">
+用户管理<span style="color: #ff0000"><%=error %></span><br><a href="javascript:void(0)" onclick="pop()" style="padding-left: 60%;">添加消费账单</a>&emsp;&emsp;<a href="#">刷新</a>
+<div class="aa">
+<table border="1">
+<tr>
+<th>消费人</th><th>消费类型</th><th>消费金额</th><th>消费时间</th><th>备注</th>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div id="footer">
@@ -66,9 +88,11 @@
 <script type="text/javascript">
  function pop() {
 	 document.getElementById('light').style.display='block';
+	 document.getElementById('fade').style.display='none';
 }
  function pop1() {
 	 document.getElementById('light').style.display='none';
+	 document.getElementById('fade').style.display='block';
 }
 </script>
 </html>

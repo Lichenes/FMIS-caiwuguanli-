@@ -54,6 +54,12 @@ public interface AccountDao {
 	 * @return
 	 */
 	int userConsume(String name, String consume, int money, String date, String notebook);
+	/**
+	 * 
+	 * @param uname
+	 * @return
+	 */
+	User userCheckMoneyDao(String uname);
 
 
 }
