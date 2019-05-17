@@ -28,7 +28,7 @@ a{
 </ul>
 <div class="show" onclick="isHidden('div2')">费用明细</div>
 <ul id="div2">
-<li><a href="income.jsp">收入</a></li>
+<li><a href="Search?oper=Income">收入</a></li>
 <li><a href="consume.jsp">支出</a></li>
 </ul>
 <div class="show" onclick="isHidden('div3')">信息管理</div>
@@ -48,9 +48,6 @@ a{
 		if(window.confirm("你確定退出此账号?")){
 			submit();
 		}
-	}
-	function skip() {
-		 windows.location.href="data.jsp";
 	}
 </script>
 </html>

@@ -64,7 +64,7 @@ table{
 </form>
 </div>
 <div id="fade">
-用户管理<span style="color: #ff0000"><%=error %></span><br><a href="javascript:void(0)" onclick="pop()" style="padding-left: 60%;">添加消费账单</a>&emsp;&emsp;<a href="#">刷新</a>
+用户管理<span style="color: #ff0000"><%=error %></span><a href="javascript:void(0)" onclick="pop()" style="padding-left: 50%;">添加消费账单</a>&emsp;&emsp;<a href="#">刷新</a>
 <div class="aa">
 <table border="1">
 <tr>

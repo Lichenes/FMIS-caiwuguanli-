@@ -95,12 +95,14 @@ public class AccountServlet extends HttpServlet {
 	}
 
 	private void userConsume(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User u=(User)request.getSession().getAttribute("user");
+		String uname=u.getUsername();
 		String name=request.getParameter("name");
 		String consume=request.getParameter("consume");
 		int money=request.getParameter("money")!=" "?Integer.parseInt(request.getParameter("money")):0;
 		String date=request.getParameter("date");
 		String notebook=request.getParameter("notebook");
-		int index=as.userConsume(name,consume,money,date,notebook);
+		int index=as.userConsume(uname,name,consume,money,date,notebook);
 		if(index>0){
 			request.setAttribute("info","添加成功!");
 			request.getRequestDispatcher("consume.jsp").forward(request, response);
@@ -108,12 +110,14 @@ public class AccountServlet extends HttpServlet {
 	}
 
 	private void userIncome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User u=(User)request.getSession().getAttribute("user");
+		String uname=u.getUsername();
 		String name=request.getParameter("name");
 		String income=request.getParameter("income");
 		int money=request.getParameter("money")!=" "?Integer.parseInt(request.getParameter("money")):0;
 		String date=request.getParameter("date");
 		String notebook=request.getParameter("notebook");
-		int index=as.userIcome(name,income,money,date,notebook);
+		int index=as.userIcome(uname,name,income,money,date,notebook);
 		if(index>0){
 			request.setAttribute("info","添加成功!");
 			request.getRequestDispatcher("income.jsp").forward(request, response);

@@ -127,7 +127,7 @@ public class AccountDaoImpl implements AccountDao{
 	}
 
 	@Override
-	public int userIcomeDao(String name, String income, int money, String date, String notebook) {
+	public int userIcomeDao(String uname,String name, String income, int money, String date, String notebook) {
 		Connection conn=null;
 		PreparedStatement ps=null;
 		int index=0;
@@ -137,13 +137,14 @@ public class AccountDaoImpl implements AccountDao{
 	  		String pwd="root";
 	  		Class.forName("com.mysql.cj.jdbc.Driver");
 	  		conn=DriverManager.getConnection(url, user, pwd);
-	  		String sql="insert into t_income values(default,?,?,?,?,?)";
+	  		String sql="insert into t_income values(default,?,?,?,?,?,?)";
 	  		ps=conn.prepareStatement(sql);
-	  		ps.setString(1, name);
-	  		ps.setString(2, income);
-	  		ps.setInt(3, money);
-	  		ps.setString(4, date);
-	  		ps.setString(5, notebook);
+	  		ps.setString(1, uname);
+	  		ps.setString(2, name);
+	  		ps.setString(3, income);
+	  		ps.setInt(4, money);
+	  		ps.setString(5, date);
+	  		ps.setString(6, notebook);
 	  		index=ps.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -247,7 +248,7 @@ public class AccountDaoImpl implements AccountDao{
 	}
 
 	@Override
-	public int userConsume(String name, String consume, int money, String date, String notebook) {
+	public int userConsume(String uname, String name, String consume, int money, String date, String notebook) {
 		Connection conn=null;
 		PreparedStatement ps=null;
 		int index=0;
@@ -257,13 +258,14 @@ public class AccountDaoImpl implements AccountDao{
 	  		String pwd="root";
 	  		Class.forName("com.mysql.cj.jdbc.Driver");
 	  		conn=DriverManager.getConnection(url, user, pwd);
-	  		String sql="insert into t_consume values(default,?,?,?,?,?)";
+	  		String sql="insert into t_consume values(default,?,?,?,?,?,?)";
 	  		ps=conn.prepareStatement(sql);
-	  		ps.setString(1, name);
-	  		ps.setString(2, consume);
-	  		ps.setInt(3, money);
-	  		ps.setString(4, date);
-	  		ps.setString(5, notebook);
+	  		ps.setString(1, uname);
+	  		ps.setString(2, name);
+	  		ps.setString(3, consume);
+	  		ps.setInt(4, money);
+	  		ps.setString(5, date);
+	  		ps.setString(6, notebook);
 	  		index=ps.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

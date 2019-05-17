@@ -21,9 +21,9 @@ public class AccountServiceImpl implements  AccountService{
 	}
 
 	@Override
-	public int userIcome(String name, String income, int money, String date, String notebook) {
+	public int userIcome(String uname, String name, String income, int money, String date, String notebook) {
 		// TODO Auto-generated method stub
-		return ad.userIcomeDao(name,income,money,date,notebook);
+		return ad.userIcomeDao(uname,name,income,money,date,notebook);
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class AccountServiceImpl implements  AccountService{
 	}
 
 	@Override
-	public int userConsume(String name, String consume, int money, String date, String notebook) {
+	public int userConsume(String uname, String name, String consume, int money, String date, String notebook) {
 		// TODO Auto-generated method stub
-		return ad.userConsume(name,consume,money,date,notebook);
+		return ad.userConsume(uname,name,consume,money,date,notebook);
 	}
 
 	@Override

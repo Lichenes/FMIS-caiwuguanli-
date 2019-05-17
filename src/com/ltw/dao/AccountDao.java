@@ -22,6 +22,7 @@ public interface AccountDao {
 	User UserGetMessageDao(String uname);
 	/**
 	 * 
+	 * @param uname
 	 * @param name
 	 * @param income
 	 * @param money
@@ -29,7 +30,7 @@ public interface AccountDao {
 	 * @param notebook
 	 * @return
 	 */
-	int userIcomeDao(String name, String income, int money, String date, String notebook);
+	int userIcomeDao(String uname, String name, String income, int money, String date, String notebook);
 	/**
 	 * 
 	 * @param rmb
@@ -46,6 +47,7 @@ public interface AccountDao {
 	int useDecreaseDao(int rmb, String uname);
 	/**
 	 * 
+	 * @param uname
 	 * @param name
 	 * @param consume
 	 * @param money
@@ -53,13 +55,12 @@ public interface AccountDao {
 	 * @param notebook
 	 * @return
 	 */
-	int userConsume(String name, String consume, int money, String date, String notebook);
+	int userConsume(String uname, String name, String consume, int money, String date, String notebook);
 	/**
 	 * 
 	 * @param uname
 	 * @return
 	 */
 	User userCheckMoneyDao(String uname);
-
 
 }
