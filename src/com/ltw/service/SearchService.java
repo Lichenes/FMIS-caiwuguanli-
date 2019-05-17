@@ -8,4 +8,6 @@ public interface SearchService {
 
 	List<User> userCheckIncomeService();
 
+	List<User> userCheckConsumeService();
+
 }

@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.ltw.pojo.User"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -64,19 +67,24 @@ table{
 </form>
 </div>
 <div id="fade">
-用户管理<span style="color: #ff0000"><%=error %></span><a href="javascript:void(0)" onclick="pop()" style="padding-left: 50%;">添加消费账单</a>&emsp;&emsp;<a href="#">刷新</a>
+用户管理<span style="color: #ff0000"><%=error %></span><a href="javascript:void(0)" onclick="pop()" style="padding-left: 50%;">添加消费账单</a>&emsp;&emsp;<a href="Search?oper=Consume">刷新</a>
 <div class="aa">
 <table border="1">
 <tr>
 <th>消费人</th><th>消费类型</th><th>消费金额</th><th>消费时间</th><th>备注</th>
 </tr>
+<%
+	List<User> lu=(ArrayList<User>)request.getAttribute("lu");
+	for(User u:lu){
+%>
 <tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><%=u.getName() %></td>
+<td><%=u.getType() %></td>
+<td><%=u.getConsume() %></td>
+<td><%=u.getDate() %></td>
+<td><%=u.getNotebook() %></td>
 </tr>
+<%} %>
 </table>
 </div>
 </div>

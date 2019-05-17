@@ -11,5 +11,10 @@ public interface SearchDao {
 	 * @return
 	 */
 	List<User> uerCheckIncomeDao();
+	/**
+	 * 
+	 * @return
+	 */
+	List<User> uerCheckConsumeDao();
 
 }

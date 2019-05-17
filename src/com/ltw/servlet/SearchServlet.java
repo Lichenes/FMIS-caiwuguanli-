@@ -46,7 +46,18 @@ public class SearchServlet extends HttpServlet {
   		String oper=request.getParameter("oper");
   		if("Income".equals(oper)){
   			userCheckIncome(request,response);
+  		}else if("Consume".equals(oper)){
+  			userCheckConsume(request,response);
   		}
+	}
+
+	private void userCheckConsume(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<User> lu=ss.userCheckConsumeService();
+		if(lu!=null){
+			request.setAttribute("lu", lu);
+			request.getRequestDispatcher("consume.jsp").forward(request, response);
+			return;
+		}
 	}
 
 	private void userCheckIncome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

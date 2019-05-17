@@ -14,5 +14,10 @@ public class SearchServiceImpl implements SearchService{
 		
 		return sd.uerCheckIncomeDao();
 	}
+	@Override
+	public List<User> userCheckConsumeService() {
+		
+		return sd.uerCheckConsumeDao();
+	}
 
 }

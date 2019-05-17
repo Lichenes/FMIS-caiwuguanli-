@@ -29,7 +29,7 @@ a{
 <div class="show" onclick="isHidden('div2')">费用明细</div>
 <ul id="div2">
 <li><a href="Search?oper=Income">收入</a></li>
-<li><a href="consume.jsp">支出</a></li>
+<li><a href="Search?oper=Consume">支出</a></li>
 </ul>
 <div class="show" onclick="isHidden('div3')">信息管理</div>
 <ul id="div3">
