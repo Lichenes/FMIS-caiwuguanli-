@@ -1,30 +1,24 @@
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
-<link rel="stylesheet" type="text/css" href="css/index.css" >
-<% 
-	String error = (String) request.getAttribute("info");
-%>
-
-    <title>财务管理系统</title>
+<link rel="stylesheet" type="text/css" href="css/message.css" >
+<style type="text/css">
+.form-sigin{
+	margin-top: 12%;
+}
+</style>
+		<title>财务管理系统</title>
 </head>
 <body>
-<div id="header">
-<%@ include file="welcome.jsp" %>
-<div class="key">
-<p>财务管理
-</div>
-</div>
-<div id="nav">
+<div>
+<div class="form-sigin" >
+<h2 class="form-sigin-heading">欢迎使用</h2>
+<div style="text-align: center;">
 <%@ include file="left.jsp" %>
 </div>
-<div id="section">
 </div>
-<div id="footer">
-<%@ include file="footer.jsp" %>
 </div>
 </body>
-</html>
+</html>     

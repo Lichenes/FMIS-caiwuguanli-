@@ -22,11 +22,7 @@ a{
 </style>
 </head>
 <body>
-<div class="show" onclick="isHidden('div1')">主页</div>
-<ul id="div1">
-<li><a href="index.jsp">主页</a></li>
-</ul>
-<div class="show" onclick="isHidden('div2')">费用明细</div>
+<div class="show" onclick="isHidden('div2')">个人账单</div>
 <ul id="div2">
 <li><a href="Search?oper=Income">收入</a></li>
 <li><a href="Search?oper=Consume">支出</a></li>
