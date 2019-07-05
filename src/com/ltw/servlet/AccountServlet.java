@@ -1,6 +1,8 @@
 package com.ltw.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,16 +54,36 @@ public class AccountServlet extends HttpServlet {
   			all=userIcrease(request,response);
   			if(all>0){
   				userIncome(request,response);
+  				userCheckIncome(request,response);
   			}
   		}else if("Consume".equals(oper)){
   			all=userCheckMoney(request,response);
   			if(all>0){
   			    userDecrease(request,response);
   				userConsume(request,response);
+  				userCheckConsume(request,response);
   			}
   		}
 	}
 
+	private void userCheckConsume(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<User> lu=as.userCheckConsumeService();
+		if(lu!=null){
+			request.setAttribute("lu", lu);
+			request.getRequestDispatcher("consume.jsp").forward(request, response);
+			return;
+		}
+	}	
+	
+	private void userCheckIncome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<User> lu=as.userCheckIncomeService();
+		if(lu!=null){
+			request.setAttribute("lu", lu);
+			request.getRequestDispatcher("income.jsp").forward(request, response);
+			return;
+		}
+	}
+	
 	private int userCheckMoney(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User u=(User)request.getSession().getAttribute("user");
 		int rmb=request.getParameter("money")!=" "?Integer.parseInt(request.getParameter("money")):0;
@@ -103,10 +125,6 @@ public class AccountServlet extends HttpServlet {
 		String date=request.getParameter("date");
 		String notebook=request.getParameter("notebook");
 		int index=as.userConsume(uname,name,consume,money,date,notebook);
-		if(index>0){
-			request.setAttribute("info","添加成功!");
-			request.getRequestDispatcher("consume.jsp").forward(request, response);
-		}
 	}
 
 	private void userIncome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -118,10 +136,6 @@ public class AccountServlet extends HttpServlet {
 		String date=request.getParameter("date");
 		String notebook=request.getParameter("notebook");
 		int index=as.userIcome(uname,name,income,money,date,notebook);
-		if(index>0){
-			request.setAttribute("info","添加成功!");
-			request.getRequestDispatcher("income.jsp").forward(request, response);
-		}
 	}
 
 	private void userGetMessage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

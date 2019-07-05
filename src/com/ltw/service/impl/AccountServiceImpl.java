@@ -1,5 +1,7 @@
 package com.ltw.service.impl;
 
+import java.util.List;
+
 import com.ltw.dao.AccountDao;
 import com.ltw.dao.impl.AccountDaoImpl;
 import com.ltw.pojo.User;
@@ -48,6 +50,17 @@ public class AccountServiceImpl implements  AccountService{
 	public User userCheckMoney(String uname) {
 		// TODO Auto-generated method stub
 		return ad.userCheckMoneyDao(uname);
+	}
+
+	@Override
+	public List<User> userCheckIncomeService() {
+		return ad.uerCheckIncomeDao();
+	}
+
+	@Override
+	public List<User> userCheckConsumeService() {
+		// TODO Auto-generated method stub
+		return ad.uerCheckConsumeDao();
 	}
 
 }

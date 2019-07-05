@@ -1,5 +1,7 @@
 package com.ltw.dao;
 
+import java.util.List;
+
 import com.ltw.pojo.User;
 
 public interface AccountDao {
@@ -62,5 +64,7 @@ public interface AccountDao {
 	 * @return
 	 */
 	User userCheckMoneyDao(String uname);
+	List<User> uerCheckIncomeDao();
+	List<User> uerCheckConsumeDao();
 
 }

@@ -1,5 +1,7 @@
 package com.ltw.service;
 
+import java.util.List;
+
 import com.ltw.pojo.User;
 
 public interface AccountService {
@@ -17,6 +19,10 @@ public interface AccountService {
 	int userConsume(String uname,String name, String consume, int money, String date, String notebook);
 
 	User userCheckMoney(String uname);
+
+	List<User> userCheckIncomeService();
+
+	List<User> userCheckConsumeService();
 
 
 }
